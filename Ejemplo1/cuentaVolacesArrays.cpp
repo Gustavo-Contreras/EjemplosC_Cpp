@@ -39,7 +39,7 @@ int main ()
 				    case 'I':
 				    case 'O':
 				    case 'U':
-				    	contador=contador +1 ;
+				    	contador= contador + 1 ;
 				    	break;
 				default:
 				 contador  = 0;
