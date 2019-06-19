@@ -1,4 +1,4 @@
-// Ejemplo 9A
+// Ejemplo 10
 
 #include <iostream>
 
@@ -38,7 +38,8 @@ int main ()
 	 for(int i=0;i<3;i++)
 	 {
 	 
-	cout<<" Los datos de los  cliente son :"<<cliente[i].nombre<<", "<<cliente[i].unidades<<", "<<cliente[i].precio<<", "<<cliente[i].estado<<endl; 
+	cout<<" Los datos de los  cliente son :"<<endl;
+	cout<<cliente[i].nombre<<", "<<cliente[i].unidades<<", "<<cliente[i].precio<<", "<<cliente[i].estado<<endl; 
      } 
 	return 0;
 }
