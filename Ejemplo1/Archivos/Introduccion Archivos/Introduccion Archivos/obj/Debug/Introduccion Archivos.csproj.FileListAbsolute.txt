@@ -1,0 +1,10 @@
+C:\temp\EjemplosC_Cpp\Ejemplo1\Archivos\Introduccion Archivos\Introduccion Archivos\bin\Debug\Introduccion Archivos.exe.config
+C:\temp\EjemplosC_Cpp\Ejemplo1\Archivos\Introduccion Archivos\Introduccion Archivos\bin\Debug\Introduccion Archivos.exe
+C:\temp\EjemplosC_Cpp\Ejemplo1\Archivos\Introduccion Archivos\Introduccion Archivos\bin\Debug\Introduccion Archivos.pdb
+C:\temp\EjemplosC_Cpp\Ejemplo1\Archivos\Introduccion Archivos\Introduccion Archivos\obj\Debug\Introduccion Archivos.csprojAssemblyReference.cache
+C:\temp\EjemplosC_Cpp\Ejemplo1\Archivos\Introduccion Archivos\Introduccion Archivos\obj\Debug\Introduccion_Archivos.Properties.Resources.resources
+C:\temp\EjemplosC_Cpp\Ejemplo1\Archivos\Introduccion Archivos\Introduccion Archivos\obj\Debug\Introduccion Archivos.csproj.GenerateResource.cache
+C:\temp\EjemplosC_Cpp\Ejemplo1\Archivos\Introduccion Archivos\Introduccion Archivos\obj\Debug\Introduccion Archivos.csproj.CoreCompileInputs.cache
+C:\temp\EjemplosC_Cpp\Ejemplo1\Archivos\Introduccion Archivos\Introduccion Archivos\obj\Debug\Introduccion Archivos.exe
+C:\temp\EjemplosC_Cpp\Ejemplo1\Archivos\Introduccion Archivos\Introduccion Archivos\obj\Debug\Introduccion Archivos.pdb
+C:\temp\EjemplosC_Cpp\Ejemplo1\Archivos\Introduccion Archivos\Introduccion Archivos\obj\Debug\Introduccion_Archivos.Form1.resources
