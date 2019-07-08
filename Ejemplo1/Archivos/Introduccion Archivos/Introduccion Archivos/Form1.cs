@@ -216,10 +216,17 @@ namespace Introduccion_Archivos
                 string path = txbCrearArchivo.Text;
 
                 
-
+              
 
                 StreamWriter escritura = File.CreateText(@path);
 
+                FileStream lectura = File.OpenRead(path);
+
+                StreamReader LecturaArchivo = File.OpenText(path);
+
+                // funciones para leer texto.
+
+                string textoLeido = File.ReadAllText(path);
 
                 escritura.WriteLine("Hola archivo");
                 escritura.WriteLine("Segunda linea");
