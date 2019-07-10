@@ -45,6 +45,9 @@ namespace Introduccion_Archivos
             this.btnCopiarArchvios = new System.Windows.Forms.Button();
             this.txbDestino = new System.Windows.Forms.TextBox();
             this.txbOrigen = new System.Windows.Forms.TextBox();
+            this.btnStreamW = new System.Windows.Forms.Button();
+            this.txbStreamW = new System.Windows.Forms.TextBox();
+            this.BtnStreamR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +93,7 @@ namespace Introduccion_Archivos
             this.btnLeerDirectorio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLeerDirectorio.Location = new System.Drawing.Point(12, 90);
             this.btnLeerDirectorio.Name = "btnLeerDirectorio";
-            this.btnLeerDirectorio.Size = new System.Drawing.Size(187, 23);
+            this.btnLeerDirectorio.Size = new System.Drawing.Size(119, 23);
             this.btnLeerDirectorio.TabIndex = 2;
             this.btnLeerDirectorio.Text = "Leer Directorio";
             this.btnLeerDirectorio.UseVisualStyleBackColor = true;
@@ -101,15 +104,15 @@ namespace Introduccion_Archivos
             this.txbLeerDirectorio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txbLeerDirectorio.Location = new System.Drawing.Point(12, 35);
             this.txbLeerDirectorio.Name = "txbLeerDirectorio";
-            this.txbLeerDirectorio.Size = new System.Drawing.Size(187, 20);
+            this.txbLeerDirectorio.Size = new System.Drawing.Size(119, 20);
             this.txbLeerDirectorio.TabIndex = 3;
             // 
             // btnListarDirectorio
             // 
             this.btnListarDirectorio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnListarDirectorio.Location = new System.Drawing.Point(216, 90);
+            this.btnListarDirectorio.Location = new System.Drawing.Point(146, 91);
             this.btnListarDirectorio.Name = "btnListarDirectorio";
-            this.btnListarDirectorio.Size = new System.Drawing.Size(150, 23);
+            this.btnListarDirectorio.Size = new System.Drawing.Size(82, 23);
             this.btnListarDirectorio.TabIndex = 4;
             this.btnListarDirectorio.TabStop = false;
             this.btnListarDirectorio.Text = "Listar Directorio";
@@ -119,15 +122,15 @@ namespace Introduccion_Archivos
             // txbListarDirectorio
             // 
             this.txbListarDirectorio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbListarDirectorio.Location = new System.Drawing.Point(216, 35);
+            this.txbListarDirectorio.Location = new System.Drawing.Point(146, 35);
             this.txbListarDirectorio.Name = "txbListarDirectorio";
-            this.txbListarDirectorio.Size = new System.Drawing.Size(150, 20);
+            this.txbListarDirectorio.Size = new System.Drawing.Size(82, 20);
             this.txbListarDirectorio.TabIndex = 5;
             this.txbListarDirectorio.TextChanged += new System.EventHandler(this.texbListarDirectorio_TextChanged);
             // 
             // txbCrearArchivo
             // 
-            this.txbCrearArchivo.Location = new System.Drawing.Point(372, 35);
+            this.txbCrearArchivo.Location = new System.Drawing.Point(245, 35);
             this.txbCrearArchivo.Name = "txbCrearArchivo";
             this.txbCrearArchivo.Size = new System.Drawing.Size(164, 20);
             this.txbCrearArchivo.TabIndex = 7;
@@ -135,7 +138,7 @@ namespace Introduccion_Archivos
             // 
             // btnCrearDirectorio
             // 
-            this.btnCrearDirectorio.Location = new System.Drawing.Point(542, 90);
+            this.btnCrearDirectorio.Location = new System.Drawing.Point(424, 90);
             this.btnCrearDirectorio.Name = "btnCrearDirectorio";
             this.btnCrearDirectorio.Size = new System.Drawing.Size(189, 23);
             this.btnCrearDirectorio.TabIndex = 8;
@@ -145,7 +148,7 @@ namespace Introduccion_Archivos
             // 
             // txbCrearDirectorio
             // 
-            this.txbCrearDirectorio.Location = new System.Drawing.Point(542, 35);
+            this.txbCrearDirectorio.Location = new System.Drawing.Point(424, 34);
             this.txbCrearDirectorio.Name = "txbCrearDirectorio";
             this.txbCrearDirectorio.Size = new System.Drawing.Size(189, 20);
             this.txbCrearDirectorio.TabIndex = 9;
@@ -153,7 +156,7 @@ namespace Introduccion_Archivos
             // 
             // btnCrearArchivo
             // 
-            this.btnCrearArchivo.Location = new System.Drawing.Point(372, 90);
+            this.btnCrearArchivo.Location = new System.Drawing.Point(245, 90);
             this.btnCrearArchivo.Name = "btnCrearArchivo";
             this.btnCrearArchivo.Size = new System.Drawing.Size(164, 23);
             this.btnCrearArchivo.TabIndex = 10;
@@ -163,7 +166,7 @@ namespace Introduccion_Archivos
             // 
             // btnCopiarArchvios
             // 
-            this.btnCopiarArchvios.Location = new System.Drawing.Point(738, 90);
+            this.btnCopiarArchvios.Location = new System.Drawing.Point(619, 91);
             this.btnCopiarArchvios.Name = "btnCopiarArchvios";
             this.btnCopiarArchvios.Size = new System.Drawing.Size(240, 24);
             this.btnCopiarArchvios.TabIndex = 11;
@@ -173,17 +176,44 @@ namespace Introduccion_Archivos
             // 
             // txbDestino
             // 
-            this.txbDestino.Location = new System.Drawing.Point(861, 34);
+            this.txbDestino.Location = new System.Drawing.Point(742, 34);
             this.txbDestino.Name = "txbDestino";
             this.txbDestino.Size = new System.Drawing.Size(117, 20);
             this.txbDestino.TabIndex = 13;
             // 
             // txbOrigen
             // 
-            this.txbOrigen.Location = new System.Drawing.Point(738, 34);
+            this.txbOrigen.Location = new System.Drawing.Point(619, 35);
             this.txbOrigen.Name = "txbOrigen";
             this.txbOrigen.Size = new System.Drawing.Size(110, 20);
             this.txbOrigen.TabIndex = 14;
+            // 
+            // btnStreamW
+            // 
+            this.btnStreamW.Location = new System.Drawing.Point(868, 60);
+            this.btnStreamW.Name = "btnStreamW";
+            this.btnStreamW.Size = new System.Drawing.Size(100, 23);
+            this.btnStreamW.TabIndex = 15;
+            this.btnStreamW.Text = "Stream W";
+            this.btnStreamW.UseVisualStyleBackColor = true;
+            this.btnStreamW.Click += new System.EventHandler(this.btnStramW_Click);
+            // 
+            // txbStreamW
+            // 
+            this.txbStreamW.Location = new System.Drawing.Point(868, 34);
+            this.txbStreamW.Name = "txbStreamW";
+            this.txbStreamW.Size = new System.Drawing.Size(100, 20);
+            this.txbStreamW.TabIndex = 16;
+            // 
+            // BtnStreamR
+            // 
+            this.BtnStreamR.Location = new System.Drawing.Point(868, 91);
+            this.BtnStreamR.Name = "BtnStreamR";
+            this.BtnStreamR.Size = new System.Drawing.Size(100, 23);
+            this.BtnStreamR.TabIndex = 17;
+            this.BtnStreamR.Text = "Stream R";
+            this.BtnStreamR.UseVisualStyleBackColor = true;
+            this.BtnStreamR.Click += new System.EventHandler(this.BtnStreamr_Click);
             // 
             // Form1
             // 
@@ -191,6 +221,9 @@ namespace Introduccion_Archivos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(990, 450);
+            this.Controls.Add(this.BtnStreamR);
+            this.Controls.Add(this.txbStreamW);
+            this.Controls.Add(this.btnStreamW);
             this.Controls.Add(this.txbOrigen);
             this.Controls.Add(this.txbDestino);
             this.Controls.Add(this.btnCopiarArchvios);
@@ -236,6 +269,9 @@ namespace Introduccion_Archivos
         private System.Windows.Forms.Button btnCopiarArchvios;
         private System.Windows.Forms.TextBox txbDestino;
         private System.Windows.Forms.TextBox txbOrigen;
+        private System.Windows.Forms.Button btnStreamW;
+        private System.Windows.Forms.TextBox txbStreamW;
+        private System.Windows.Forms.Button BtnStreamR;
     }
 }
 

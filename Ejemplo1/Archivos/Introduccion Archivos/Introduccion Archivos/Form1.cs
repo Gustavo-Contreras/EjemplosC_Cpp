@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO; 
+using System.IO;
+using System.Text;
 
 
 
@@ -303,6 +304,106 @@ namespace Introduccion_Archivos
             {
                 EscribirLog("error", error.ToString(), dgvLogs);
             }
+        }
+
+        private void btnStramW_Click(object sender, EventArgs e)
+        {
+            string path = txbStreamW.Text;
+            Stream writingStream = new FileStream(path, FileMode.Create);
+            try
+            {
+             
+                
+
+                if (writingStream.CanWrite)
+                {
+                    byte[] miNombreBytes = new byte[]
+                    {
+                     71,//G
+                     117,//u
+                     115,//s
+                     116,//t
+                     97,//a
+                     118,//v
+                     111,//0
+
+                    };
+
+                    writingStream.Write
+                        (
+                            miNombreBytes,
+                            0,
+                            miNombreBytes.Length
+
+                        );
+                    writingStream.WriteByte(33); // !
+                    EscribirLog("info", "Escribimos el Archivo", dgvLogs);
+                 
+                }
+                else
+                {
+                    EscribirLog("error", "No se puede escribir", dgvLogs);
+                }
+
+                writingStream.Close();
+            
+
+                
+
+
+            }
+
+
+            catch (Exception error)
+            {
+                EscribirLog("error",error.ToString(), dgvLogs);
+            }
+
+            finally
+            {
+                writingStream.Close();
+            }
+            
+        }
+
+        private void BtnStreamr_Click(object sender, EventArgs e)
+        {
+            string path = txbStreamW.Text;
+            try
+            {
+                using (Stream readingStream = new FileStream(@path, FileMode.Open))
+                {
+                    byte[] arregloTemporal = new byte[3];
+                    UTF8Encoding codificacion = new UTF8Encoding(true);
+
+                    //readingStream.Seek -->> Moverse de posiccion
+
+                    int posicion = 0;
+                    while ((posicion = readingStream.Read(
+                        arregloTemporal,
+                        0,
+                        arregloTemporal.Length
+                        )) > 0)
+                    {
+
+                        {
+
+                            string caracter = codificacion.GetString
+                                (
+                                    arregloTemporal,
+                                    0,
+                                    arregloTemporal.Length
+                                );
+                            EscribirLog("info", "Caracter: " + caracter, dgvLogs);
+                        }
+                    }
+                }
+            }
+            catch(Exception error)
+            {
+                EscribirLog("error", error.ToString(), dgvLogs);
+            }
+            
         }
     }
 }
