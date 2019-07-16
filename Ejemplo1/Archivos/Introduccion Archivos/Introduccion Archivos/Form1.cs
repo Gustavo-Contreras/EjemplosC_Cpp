@@ -211,7 +211,7 @@ namespace Introduccion_Archivos
 
       
         private void btnCrearArchivo_Click(object sender, EventArgs e)
-        {
+    {    
             try
             {
                 string path = txbCrearArchivo.Text;
@@ -262,148 +262,196 @@ namespace Introduccion_Archivos
             try
             {
                 string pathInicio = txbOrigen.Text;
-                string pathFin = txbDestino.Text;
-                char[] cadenaInicio = pathInicio.ToCharArray();
+                string pathfin = txbDestino.Text;
 
+                CopiarRecursivo(pathInicio, pathfin);
+            }
+            catch (Exception)
+            {
+                EscribirLog("error", "no existe directorio", dgvLogs);
+            }
 
-                // directory 
+            void CopiarRecursivo(string pathInicio, string pathFin)
+            {
+                bool existe = Directory.Exists(pathInicio);
 
-                bool existeDirectorioInicio = Directory.Exists(@pathInicio);
-                if (existeDirectorioInicio == true)
+                if (existe == true)
+
                 {
-                    string[] directoriosInicio = Directory.GetDirectories(@pathInicio);
+                    string directorioPadre = Path.GetDirectoryName(pathInicio);
+                    string directorioIncial = pathInicio.Substring(directorioPadre.Length);
+                    string nuevoDirectorio = pathFin + directorioIncial;
 
-
-                    //ARCHIVOS
-                   
-                    string[] archivosEncontrados = Directory.GetFiles(pathInicio);
-                    //File.Copy()
-
-
-                    foreach (string directorio  in directoriosInicio)
+                    Directory.CreateDirectory(nuevoDirectorio);
+                    // Archivos
+                    string[] archivosEncontrado = Directory.GetFiles(pathInicio);
+                    foreach (string archivos in archivosEncontrado)
                     {
-                        EscribirLog("info", directorio, dgvLogs);
+                        string nombreArchivo = archivos.Substring(pathInicio.Length);
+                        File.Copy(archivos, nuevoDirectorio + nombreArchivo);
 
-                        int inicioSubstring = pathInicio.Length;
-                        int finSubstring = directorio.Length;
-                        string nomreDirectorioi = directorio.Substring(inicioSubstring,finSubstring);
-
-                        EscribirLog("info", directorio, dgvLogs);
                     }
 
+                    string[] directoriosInternos = Directory.GetDirectories(pathInicio);
+                    foreach (string directorio in directoriosInternos)
+                    {
+                        CopiarRecursivo(directorio, nuevoDirectorio);
+                    }
                 }
-                else
-                {
-                    EscribirLog("error", "No existe directorio.", dgvLogs);
-                }
-
-
-
             }
-            catch(Exception error)
-            {
-                EscribirLog("error", error.ToString(), dgvLogs);
-            }
+
+
         }
 
-        private void btnStramW_Click(object sender, EventArgs e)
-        {
-            string path = txbStreamW.Text;
-            Stream writingStream = new FileStream(path, FileMode.Create);
-            try
-            {
-             
-                
-
-                if (writingStream.CanWrite)
-                {
-                    byte[] miNombreBytes = new byte[]
-                    {
-                     71,//G
-                     117,//u
-                     115,//s
-                     116,//t
-                     97,//a
-                     118,//v
-                     111,//0
-
-                    };
-
-                    writingStream.Write
-                        (
-                            miNombreBytes,
-                            0,
-                            miNombreBytes.Length
-
-                        );
-                    writingStream.WriteByte(33); // !
-                    EscribirLog("info", "Escribimos el Archivo", dgvLogs);
-                 
-                }
-                else
-                {
-                    EscribirLog("error", "No se puede escribir", dgvLogs);
-                }
-
-                writingStream.Close();
-            
-
-                
+                                                                   
+          
+         private void btnStramW_Click(object sender, EventArgs e)
+          {
+              string path = txbStreamW.Text;
+              Stream writingStream = new FileStream(path, FileMode.Create);
+              try
+              {
 
 
-            }
+
+                  if (writingStream.CanWrite)
+                  {
+                      byte[] miNombreBytes = new byte[]
+                      {
+                       71,//G
+                       117,//u
+                       115,//s
+                       116,//t
+                       97,//a
+                       118,//v
+                       111,//0
+
+                      };
+
+                      writingStream.Write
+                          (
+                              miNombreBytes,
+                              0,
+                              miNombreBytes.Length
+
+                          );
+                      writingStream.WriteByte(33); // !
+                      EscribirLog("info", "Escribimos el Archivo", dgvLogs);
+
+                  }
+                  else
+                  {
+                      EscribirLog("error", "No se puede escribir", dgvLogs);
+                  }
+
+                  writingStream.Close();
 
 
-            catch (Exception error)
-            {
-                EscribirLog("error",error.ToString(), dgvLogs);
-            }
 
-            finally
-            {
-                writingStream.Close();
-            }
-            
+
+
+              }
+
+
+              catch (Exception error)
+              {
+                  EscribirLog("error",error.ToString(), dgvLogs);
+              }
+
+              finally
+              {
+                  writingStream.Close();
+              }
+
+          }
+
+          private void BtnStreamr_Click(object sender, EventArgs e)
+          {
+              string path = txbStreamW.Text;
+              try
+              {
+                  using (Stream readingStream = new FileStream(@path, FileMode.Open))
+                  {
+                      byte[] arregloTemporal = new byte[3];
+                      UTF8Encoding codificacion = new UTF8Encoding(true);
+
+                      //readingStream.Seek -->> Moverse de posiccion
+
+                      int posicion = 0;
+                      while ((posicion = readingStream.Read(
+                          arregloTemporal,
+                          0,
+                          arregloTemporal.Length
+                          )) > 0)
+                      {
+
+                          {
+
+                              string caracter = codificacion.GetString
+                                  (
+                                      arregloTemporal,
+                                      0,
+                                      arregloTemporal.Length
+                                  );
+                              EscribirLog("info", "Caracter: " + caracter, dgvLogs);
+                          }
+                      }
+                  }
+              }
+              catch(Exception error)
+              {
+                  EscribirLog("error", error.ToString(), dgvLogs);
+              }
+
+              
         }
 
-        private void BtnStreamr_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-            string path = txbStreamW.Text;
-            try
-            {
-                using (Stream readingStream = new FileStream(@path, FileMode.Open))
+
+        }
+
+        private void btnOrdenarArregloBS_Click(object sender, EventArgs e)
+        {
+            string arregloTexto = txbArreglo.Text;
+            string[] elementosString = arregloTexto.Split(',');
+            int longitudArreglo = elementosString.Length-1;
+
+            int[] elementos= new int[longitudArreglo];
+            int contador = 0;
+
+            foreach (string elementoString in elementosString)
+            { 
+              elementos [contador] = Int32.Parse(elementoString);
+
+                EscribirLog("info", elementos[contador].ToString(), dgvLogs);
+                contador++;
+            }
+
+                for( int iPrimerelemento= 0;
+                iPrimerelemento<longitudArreglo;
+                iPrimerelemento++)//PRIMER FOR
                 {
-                    byte[] arregloTemporal = new byte[3];
-                    UTF8Encoding codificacion = new UTF8Encoding(true);
 
-                    //readingStream.Seek -->> Moverse de posiccion
+                    for (int iSegundoelemento = 0;
+                    iSegundoelemento < longitudArreglo - iPrimerelemento ;
+                    iSegundoelemento++) // SEGUNDO FOR 
 
-                    int posicion = 0;
-                    while ((posicion = readingStream.Read(
-                        arregloTemporal,
-                        0,
-                        arregloTemporal.Length
-                        )) > 0)
-                    {
+                     {
+                        int primerNumero = elementos[iSegundoelemento];
+                        int segundoNumero = elementos[iSegundoelemento + 1 ];
 
+                        if(segundoNumero<primerNumero) // COMPARACION 
                         {
+                        int valorTemporal =primerNumero;
+                        elementos[iPrimerelemento] = elementos[iSegundoelemento];
+                        elementos[iSegundoelemento] = primerNumero;
+                        }//TERMINA LA COMPARACION 
 
-                            string caracter = codificacion.GetString
-                                (
-                                    arregloTemporal,
-                                    0,
-                                    arregloTemporal.Length
-                                );
-                            EscribirLog("info", "Caracter: " + caracter, dgvLogs);
-                        }
-                    }
-                }
-            }
-            catch(Exception error)
-            {
-                EscribirLog("error", error.ToString(), dgvLogs);
-            }
-            
+                     }//TERMINA SEGUNDO FOR
+
+                }//TERMINA PRIMER FOR
+
         }
     }
 }

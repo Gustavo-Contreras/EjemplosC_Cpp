@@ -48,6 +48,8 @@ namespace Introduccion_Archivos
             this.btnStreamW = new System.Windows.Forms.Button();
             this.txbStreamW = new System.Windows.Forms.TextBox();
             this.BtnStreamR = new System.Windows.Forms.Button();
+            this.btnOrdenarArregloBS = new System.Windows.Forms.Button();
+            this.txbArreglo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -215,12 +217,32 @@ namespace Introduccion_Archivos
             this.BtnStreamR.UseVisualStyleBackColor = true;
             this.BtnStreamR.Click += new System.EventHandler(this.BtnStreamr_Click);
             // 
+            // btnOrdenarArregloBS
+            // 
+            this.btnOrdenarArregloBS.Location = new System.Drawing.Point(46, 410);
+            this.btnOrdenarArregloBS.Name = "btnOrdenarArregloBS";
+            this.btnOrdenarArregloBS.Size = new System.Drawing.Size(75, 23);
+            this.btnOrdenarArregloBS.TabIndex = 18;
+            this.btnOrdenarArregloBS.Text = "Ordenar  Arreglo BS";
+            this.btnOrdenarArregloBS.UseVisualStyleBackColor = true;
+            this.btnOrdenarArregloBS.Click += new System.EventHandler(this.btnOrdenarArregloBS_Click);
+            // 
+            // txbArreglo
+            // 
+            this.txbArreglo.Location = new System.Drawing.Point(146, 412);
+            this.txbArreglo.Name = "txbArreglo";
+            this.txbArreglo.Size = new System.Drawing.Size(193, 20);
+            this.txbArreglo.TabIndex = 19;
+            this.txbArreglo.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(990, 450);
+            this.Controls.Add(this.txbArreglo);
+            this.Controls.Add(this.btnOrdenarArregloBS);
             this.Controls.Add(this.BtnStreamR);
             this.Controls.Add(this.txbStreamW);
             this.Controls.Add(this.btnStreamW);
@@ -272,6 +294,8 @@ namespace Introduccion_Archivos
         private System.Windows.Forms.Button btnStreamW;
         private System.Windows.Forms.TextBox txbStreamW;
         private System.Windows.Forms.Button BtnStreamR;
+        private System.Windows.Forms.Button btnOrdenarArregloBS;
+        private System.Windows.Forms.TextBox txbArreglo;
     }
 }
 
